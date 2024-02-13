@@ -4,7 +4,8 @@ on:
     types: [completed]
   push:
     branches:
-      - '**'
+      - main
+      - stage
     paths:
       - terraform/**
   pull_request:
@@ -12,10 +13,7 @@ on:
       - main
     paths:
       - terraform/**
-
-permissions:
-  contents: read
-
+      
 env:
   # Credentials for deployment to AWS
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
@@ -37,8 +35,8 @@ jobs:
       steps:
         - name: Checkout source code
           uses: actions/checkout@v4
-          with:
-            token: ${{ secrets.GIT_TOKEN }}
+          # with:
+          #  token: ${{ secrets.GIT_TOKEN }}
 
         - name: Setup Terraform with specified version on the runner
           uses: hashicorp/setup-terraform@v3
