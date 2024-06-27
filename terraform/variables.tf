@@ -9,5 +9,8 @@ variable "clusterName" {
   type        = string
   default     = "vprofile-eks"
 }
+<<<<<<< Updated upstream
 ###
 ##
+=======
+>>>>>>> Stashed changes
